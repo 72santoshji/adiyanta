@@ -3,7 +3,7 @@
 <head>
     <!-- Google tag (gtag.js) --> 
      <script async src="https://www.googletagmanager.com/gtag/js?id=G-80XEH7CWRL">
-        
+
      </script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-80XEH7CWRL'); </script>
 <meta charset="UTF-8">
 <title>Adiyanta</title>
@@ -176,6 +176,26 @@ footer {
     color: #555;
 }
 
+.buy-links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.buy-links a {
+  text-decoration: none;
+  border: 1px solid #555;
+  color: #ddd;
+  padding: 14px;
+  transition: all 0.4s ease;
+}
+
+.buy-links a:hover {
+  background: #111;
+  border-color: #888;
+}
+
+
 /* MOBILE OPTIMIZATION */
 @media (max-width: 768px) {
 
@@ -286,6 +306,19 @@ for (let i = 0; i < particleCount; i++) {
     <p>What was false has burned.</p>
     <p>What remains does not need light.</p>
 </section>
+
+<section class="center" style="padding-top:40px;">
+  <p style="font-size:1.2rem; margin-bottom:20px;">
+    Continue the sitting
+  </p>
+
+  <div class="buy-links">
+    <a href="https://www.amazon.in/dp/YOUR_KDP_LINK" target="_blank">Read on Amazon</a>
+    <a href="https://books.google.com/books?id=YOUR_BOOK_ID" target="_blank">Read on Google Books</a>
+    <a href="https://pothi.com/pothi/book/YOUR_POTHI_LINK" target="_blank">Buy Paperback</a>
+  </div>
+</section>
+
 
 <footer>© Adiyanta</footer>
 
