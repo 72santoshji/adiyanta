@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Adiyanta</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* RESET */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* BASE */
+body {
+    background: #050505;
+    color: #e6e6e6;
+    font-family: Georgia, serif;
+    line-height: 1.8;
+    overflow-x: hidden;
+    animation: breathe 9s ease-in-out infinite;
+}
+
+/* BREATH */
+@keyframes breathe {
+    0% { letter-spacing: 0.02em; }
+    50% { letter-spacing: 0.05em; }
+    100% { letter-spacing: 0.02em; }
+}
+
+.mantra-meaning {
+    font-size: 0.95rem;
+    margin-top: 2px;
+    line-height: 1.4;
+    letter-spacing: 0.08em;
+    color: rgba(220, 200, 170, 0.75);
+    font-style: italic;
+}
+
+/* FIRE CORE */
+.fire-core {
+    position: fixed;
+    bottom: -35%;
+    left: 50%;
+    width: 520px;
+    height: 520px;
+    background: radial-gradient(circle,
+        rgba(255,130,60,0.6),
+        rgba(255,70,0,0.35),
+        transparent 70%);
+    filter: blur(100px);
+    transform: translateX(-50%);
+    animation: firePulse 4s ease-in-out infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes firePulse {
+    0% { opacity: 0.4; transform: translateX(-50%) scale(1); }
+    50% { opacity: 0.9; transform: translateX(-50%) scale(1.2); }
+    100% { opacity: 0.4; transform: translateX(-50%) scale(1); }
+}
+
+/* FIRE HEAT */
+.fire-heat {
+    position: fixed;
+    bottom: -10%;
+    left: 50%;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle,
+        rgba(255,190,120,0.25),
+        transparent 70%);
+    filter: blur(150px);
+    transform: translateX(-50%);
+    animation: heatRise 10s linear infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes heatRise {
+    from { transform: translate(-50%, 0); opacity: 0.25; }
+    to { transform: translate(-50%, -260px); opacity: 0.05; }
+}
+
+/* PARTICLES */
+.particle {
+    position: fixed;
+    bottom: 0;
+    width: 3px;
+    height: 3px;
+    background: rgba(255,160,90,0.9);
+    border-radius: 50%;
+    animation: rise linear infinite;
+    z-index: 0;
+}
+
+@keyframes rise {
+    from { transform: translateY(0) scale(1); opacity: 1; }
+    to { transform: translateY(-100vh) scale(0.2); opacity: 0; }
+}
+
+/* CONTENT */
+section {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+    margin: auto;
+    padding: 120px 24px;
+}
+
+.center { text-align: center; }
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 18px;
+}
+
+/* 🕉️ MANTRA — FIXED UNDER HEADING */
+.mantra {
+    font-family: "Noto Serif Devanagari", serif;
+    font-size: 1.35rem;
+    letter-spacing: 0.35em;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    color: rgba(255, 210, 160, 0.95);
+}
+
+@keyframes mantraVibrate {
+    0%   { transform: translateY(0); }
+    25%  { transform: translateY(-0.6px); }
+    50%  { transform: translateY(0); }
+    75%  { transform: translateY(0.6px); }
+    100% { transform: translateY(0); }
+}
+
+.mantra {
+    animation: mantraVibrate 6s ease-in-out infinite;
+}
+
+/* TEXT */
+p {
+    font-size: 1.15rem;
+    margin-bottom: 28px;
+}
+
+/* AUTHOR */
+.author {
+    font-size: 1rem;
+    color: #bdbdbd;
+    line-height: 1.9;
+}
+
+/* PROGRESSIVE DARKNESS */
+:root { --dark-level: 0; }
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(
+        circle at center,
+        rgba(0,0,0, calc(var(--dark-level) * 0.15)),
+        rgba(0,0,0, calc(var(--dark-level) * 0.95))
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* TRUE BLACK END */
+body.true-black {
+    background: #000;
+    color: #888;
+}
+
+body.true-black .fire-core,
+body.true-black .fire-heat,
+body.true-black .particle {
+    opacity: 0;
+    transition: opacity 4s ease;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 80px 20px;
+    font-size: 0.85rem;
+    color: #555;
+}
+</style>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- FIRE -->
+<div class="fire-core"></div>
+<div class="fire-heat"></div>
+
+<!-- PARTICLES -->
+<script>
+for (let i = 0; i < 100; i++) {
+    const p = document.createElement("div");
+    p.className = "particle";
+    p.style.left = Math.random() * 100 + "vw";
+    p.style.animationDuration = 6 + Math.random() * 8 + "s";
+    p.style.animationDelay = Math.random() * 6 + "s";
+    document.body.appendChild(p);
+}
+</script>
+
+<!-- CONTENT -->
+<section class="center">
+    <h1>ADIYANTA</h1>
+
+    <!-- 🕉️ MANTRA (FIXED & ALWAYS VISIBLE) -->
+    <div class="mantra">
+        यत् सर्वं भवति &nbsp; पर स्वयं न भवति
+    </div>
+    <div class="mantra-meaning">
+        “That because of which everything happens, yet which itself does not happen.”
+    </div>
+
+    <p>That which exists before the beginning<br>and remains after the end.</p>
+    <p>This is not a book.<br>It is a sitting.</p>
+</section>
+
+<section>
+    <p>
+        I sat before the fire.<br>
+        Not to pray.<br>
+        Not to ask.<br>
+        But to watch.
+    </p>
+</section>
+
+<section>
+    <p>
+        I asked myself ten questions.<br>
+        Not to receive answers.<br>
+        But to see what survives them.
+    </p>
+</section>
+
+<section class="center">
+    <p class="author">
+        <strong>Prateek Chaudhary</strong><br><br>
+        His work does not explain reality.<br>
+        It sits with it.
+    </p>
+</section>
+
+<section class="center" id="final">
+    <p>The fire has done its work.</p>
+    <p>What was false has burned.</p>
+    <p>What remains does not need light.</p>
+</section>
+
+<footer>© Adiyanta</footer>
+
+<!-- FULLSCREEN + DARKNESS (UNCHANGED) -->
+<script>
+let ritualStarted = false;
+let blackTriggered = false;
+
+function enterFullscreen() {
+    if (!ritualStarted) {
+        ritualStarted = true;
+        const el = document.documentElement;
+        if (el.requestFullscreen) el.requestFullscreen();
+    }
+}
+
+window.addEventListener("click", enterFullscreen);
+window.addEventListener("scroll", () => {
+    enterFullscreen();
+
+    const total = document.body.scrollHeight - window.innerHeight;
+    const progress = Math.min(window.scrollY / total, 1);
+
+    document.documentElement.style.setProperty("--dark-level", progress);
+
+    if (progress > 0.88 && !blackTriggered) {
+        document.body.classList.add("true-black");
+        blackTriggered = true;
+    }
+});
+</script>
+
+</body>
+</html>
