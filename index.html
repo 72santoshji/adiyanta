@@ -26,15 +26,6 @@ body {
     100% { letter-spacing: 0.02em; }
 }
 
-.mantra-meaning {
-    font-size: 0.95rem;
-    margin-top: 2px;
-    line-height: 1.4;
-    letter-spacing: 0.08em;
-    color: rgba(220, 200, 170, 0.75);
-    font-style: italic;
-}
-
 /* FIRE CORE */
 .fire-core {
     position: fixed;
@@ -81,7 +72,7 @@ body {
     to { transform: translate(-50%, -260px); opacity: 0.05; }
 }
 
-/* PARTICLES */
+/* PARTICLES (ASH) */
 .particle {
     position: fixed;
     bottom: 0;
@@ -111,32 +102,27 @@ section {
 
 h1 {
     font-size: 3rem;
-    margin-bottom: 18px;
-}
-
-/* 🕉️ MANTRA — FIXED UNDER HEADING */
-.mantra {
-    font-family: "Noto Serif Devanagari", serif;
-    font-size: 1.35rem;
-    letter-spacing: 0.35em;
-    margin-bottom: 10px;
-    line-height: 1.4;
-    color: rgba(255, 210, 160, 0.95);
-}
-
-@keyframes mantraVibrate {
-    0%   { transform: translateY(0); }
-    25%  { transform: translateY(-0.6px); }
-    50%  { transform: translateY(0); }
-    75%  { transform: translateY(0.6px); }
-    100% { transform: translateY(0); }
+    margin-bottom: 20px;
 }
 
 .mantra {
-    animation: mantraVibrate 6s ease-in-out infinite;
+    font-size: 1.2rem;
+    opacity: 0.85;
+    animation: mantraPulse 6s ease-in-out infinite;
 }
 
-/* TEXT */
+@keyframes mantraPulse {
+    0% { opacity: 0.4; }
+    50% { opacity: 0.9; }
+    100% { opacity: 0.4; }
+}
+
+.mantra-meaning {
+    font-size: 0.95rem;
+    color: #aaa;
+    margin-top: 8px;
+}
+
 p {
     font-size: 1.15rem;
     margin-bottom: 28px;
@@ -149,7 +135,7 @@ p {
     line-height: 1.9;
 }
 
-/* PROGRESSIVE DARKNESS */
+/* DARKNESS */
 :root { --dark-level: 0; }
 
 body::before {
@@ -165,10 +151,10 @@ body::before {
     z-index: 1;
 }
 
-/* TRUE BLACK END */
+/* TRUE BLACK */
 body.true-black {
     background: #000;
-    color: #888;
+    color: #777;
 }
 
 body.true-black .fire-core,
@@ -185,9 +171,43 @@ footer {
     font-size: 0.85rem;
     color: #555;
 }
-</style>
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari&display=swap" rel="stylesheet">
+/* MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+
+    body { animation: none; }
+
+    .fire-core {
+        width: 280px;
+        height: 280px;
+        filter: blur(60px);
+        bottom: -45%;
+    }
+
+    .fire-heat {
+        width: 380px;
+        height: 380px;
+        filter: blur(80px);
+    }
+
+    .particle {
+        width: 2px;
+        height: 2px;
+    }
+
+    section {
+        padding: 80px 20px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    p {
+        font-size: 1.05rem;
+    }
+}
+</style>
 </head>
 
 <body>
@@ -198,11 +218,14 @@ footer {
 
 <!-- PARTICLES -->
 <script>
-for (let i = 0; i < 100; i++) {
+const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+const particleCount = isMobile ? 25 : 100;
+
+for (let i = 0; i < particleCount; i++) {
     const p = document.createElement("div");
     p.className = "particle";
     p.style.left = Math.random() * 100 + "vw";
-    p.style.animationDuration = 6 + Math.random() * 8 + "s";
+    p.style.animationDuration = (isMobile ? 10 : 6) + Math.random() * 6 + "s";
     p.style.animationDelay = Math.random() * 6 + "s";
     document.body.appendChild(p);
 }
@@ -212,15 +235,18 @@ for (let i = 0; i < 100; i++) {
 <section class="center">
     <h1>ADIYANTA</h1>
 
-    <!-- 🕉️ MANTRA (FIXED & ALWAYS VISIBLE) -->
     <div class="mantra">
-        यत् सर्वं भवति &nbsp; पर स्वयं न भवति
+        यत् सर्वं भवति, पर स्वयं न भवति
     </div>
     <div class="mantra-meaning">
         “That because of which everything happens, yet which itself does not happen.”
     </div>
 
-    <p>That which exists before the beginning<br>and remains after the end.</p>
+    <p style="margin-top:40px;">
+        That which exists before the beginning<br>
+        and remains after the end.
+    </p>
+
     <p>This is not a book.<br>It is a sitting.</p>
 </section>
 
@@ -244,12 +270,14 @@ for (let i = 0; i < 100; i++) {
 <section class="center">
     <p class="author">
         <strong>Prateek Chaudhary</strong><br><br>
+        Not a philosopher by training.<br>
+        Not a seeker by profession.<br><br>
         His work does not explain reality.<br>
         It sits with it.
     </p>
 </section>
 
-<section class="center" id="final">
+<section class="center">
     <p>The fire has done its work.</p>
     <p>What was false has burned.</p>
     <p>What remains does not need light.</p>
@@ -257,31 +285,25 @@ for (let i = 0; i < 100; i++) {
 
 <footer>© Adiyanta</footer>
 
-<!-- FULLSCREEN + DARKNESS (UNCHANGED) -->
+<!-- SCROLL DARKNESS -->
 <script>
-let ritualStarted = false;
 let blackTriggered = false;
+let ticking = false;
 
-function enterFullscreen() {
-    if (!ritualStarted) {
-        ritualStarted = true;
-        const el = document.documentElement;
-        if (el.requestFullscreen) el.requestFullscreen();
-    }
-}
-
-window.addEventListener("click", enterFullscreen);
 window.addEventListener("scroll", () => {
-    enterFullscreen();
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            const total = document.body.scrollHeight - window.innerHeight;
+            const progress = Math.min(window.scrollY / total, 1);
+            document.documentElement.style.setProperty("--dark-level", progress);
 
-    const total = document.body.scrollHeight - window.innerHeight;
-    const progress = Math.min(window.scrollY / total, 1);
-
-    document.documentElement.style.setProperty("--dark-level", progress);
-
-    if (progress > 0.88 && !blackTriggered) {
-        document.body.classList.add("true-black");
-        blackTriggered = true;
+            if (progress > 0.88 && !blackTriggered) {
+                document.body.classList.add("true-black");
+                blackTriggered = true;
+            }
+            ticking = false;
+        });
+        ticking = true;
     }
 });
 </script>
