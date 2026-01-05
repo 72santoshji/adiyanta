@@ -1,182 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-80XEH7CWRL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-80XEH7CWRL');
+    </script>
+
 <meta charset="UTF-8">
 <title>Adiyanta</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* RESET */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+*{margin:0;padding:0;box-sizing:border-box;}
 
-/* BASE */
-body {
-    background: #050505;
-    color: #e6e6e6;
-    font-family: Georgia, serif;
-    line-height: 1.8;
-    overflow-x: hidden;
-    animation: breathe 9s ease-in-out infinite;
+body{
+    background:#050505;
+    color:#e6e6e6;
+    font-family:Georgia,serif;
+    line-height:1.85;
+    overflow-x:hidden;
 }
 
-/* BREATH */
-@keyframes breathe {
-    0% { letter-spacing: 0.02em; }
-    50% { letter-spacing: 0.05em; }
-    100% { letter-spacing: 0.02em; }
-}
-
-/* FIRE CORE */
-.fire-core {
-    position: fixed;
-    bottom: -35%;
-    left: 50%;
-    width: 520px;
-    height: 520px;
-    background: radial-gradient(circle,
+/* FIRE */
+.fire-core{
+    position:fixed;
+    bottom:-35%;
+    left:50%;
+    width:520px;
+    height:520px;
+    background:radial-gradient(circle,
         rgba(255,130,60,0.6),
         rgba(255,70,0,0.35),
         transparent 70%);
-    filter: blur(100px);
-    transform: translateX(-50%);
-    animation: firePulse 4s ease-in-out infinite;
-    z-index: 0;
-    pointer-events: none;
+    filter:blur(100px);
+    transform:translateX(-50%);
+    animation:firePulse 4s ease-in-out infinite;
+    z-index:0;
+    pointer-events:none;
+}
+@keyframes firePulse{
+    0%{opacity:.4;transform:translateX(-50%) scale(1);}
+    50%{opacity:.9;transform:translateX(-50%) scale(1.2);}
+    100%{opacity:.4;transform:translateX(-50%) scale(1);}
 }
 
-@keyframes firePulse {
-    0% { opacity: 0.4; transform: translateX(-50%) scale(1); }
-    50% { opacity: 0.9; transform: translateX(-50%) scale(1.2); }
-    100% { opacity: 0.4; transform: translateX(-50%) scale(1); }
+/* ASH PARTICLES */
+.particle{
+    position:fixed;
+    bottom:0;
+    width:3px;
+    height:3px;
+    background:rgba(255,160,90,.9);
+    border-radius:50%;
+    animation:rise linear infinite;
+    z-index:0;
 }
-
-/* FIRE HEAT */
-.fire-heat {
-    position: fixed;
-    bottom: -10%;
-    left: 50%;
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(circle,
-        rgba(255,190,120,0.25),
-        transparent 70%);
-    filter: blur(150px);
-    transform: translateX(-50%);
-    animation: heatRise 10s linear infinite;
-    z-index: 0;
-    pointer-events: none;
-}
-
-@keyframes heatRise {
-    from { transform: translate(-50%, 0); opacity: 0.25; }
-    to { transform: translate(-50%, -260px); opacity: 0.05; }
-}
-
-/* PARTICLES (ASH) */
-.particle {
-    position: fixed;
-    bottom: 0;
-    width: 3px;
-    height: 3px;
-    background: rgba(255,160,90,0.9);
-    border-radius: 50%;
-    animation: rise linear infinite;
-    z-index: 0;
-}
-
-@keyframes rise {
-    from { transform: translateY(0) scale(1); opacity: 1; }
-    to { transform: translateY(-100vh) scale(0.2); opacity: 0; }
+@keyframes rise{
+    from{transform:translateY(0) scale(1);opacity:1;}
+    to{transform:translateY(-100vh) scale(.2);opacity:0;}
 }
 
 /* CONTENT */
-section {
-    position: relative;
-    z-index: 2;
-    max-width: 720px;
-    margin: auto;
-    padding: 120px 24px;
+section{
+    position:relative;
+    z-index:2;
+    max-width:780px;
+    margin:auto;
+    padding:120px 24px;
 }
 
-.center { text-align: center; }
+.center{text-align:center;}
 
-h1 {
-    font-size: 3rem;
-    margin-bottom: 30px;
+h1{
+    font-size:3.4rem;
+    margin-bottom:22px;
+    letter-spacing:.12em;
 }
 
-h2 {
-    font-size: 1.6rem;
-    margin-bottom: 40px;
-    font-weight: normal;
-    opacity: 0.9;
+/* MANTRA */
+.mantra{
+    font-size:1.25rem;
+    color:#e2c08d;
+    margin-top:6px;
+    margin-bottom:6px;
+    letter-spacing:.25em;
+}
+.mantra-meaning{
+    font-size:.95rem;
+    color:#aaa;
+    margin-bottom:28px;
 }
 
-p {
-    font-size: 1.15rem;
-    margin-bottom: 26px;
+/* TEXT */
+p{
+    font-size:1.15rem;
+    margin-bottom:26px;
 }
 
-/* AUTHOR */
-.author {
-    font-size: 1rem;
-    color: #bdbdbd;
-    line-height: 1.9;
+/* BOOK LINKS */
+.book-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    margin-top: 80px;
 }
 
-/* DARKNESS */
-:root { --dark-level: 0; }
-
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: radial-gradient(
-        circle at center,
-        rgba(0,0,0, calc(var(--dark-level) * 0.15)),
-        rgba(0,0,0, calc(var(--dark-level) * 0.95))
-    );
-    pointer-events: none;
-    z-index: 1;
-}
-
-/* TRUE BLACK */
-body.true-black {
-    background: #000;
-    color: #777;
-}
-
-body.true-black .fire-core,
-body.true-black .fire-heat,
-body.true-black .particle {
-    opacity: 0;
-    transition: opacity 4s ease;
-}
-
-/* FOOTER */
-footer {
+.book-links a {
+    width: 260px;              /* 🔑 SAME WIDTH */
     text-align: center;
-    padding: 80px 20px;
-    font-size: 0.85rem;
-    color: #555;
+    padding: 14px 0;
+    text-decoration: none;
+    color: #e6e6e6;
+    font-family: Georgia, serif;
+    letter-spacing: 0.12em;
+    font-size: 0.9rem;
+    border: 1px solid rgba(255,170,90,0.45);
+    transition: all 0.4s ease;
+    position: relative;
 }
+
+.book-links a:hover {
+    border-color: rgba(255,190,120,0.9);
+    color: #fff;
+    box-shadow: 0 0 18px rgba(255,140,60,0.25);
+    transform: translateY(-2px);
+}
+
+/* ASH-GLOW PULSE FOR BUTTONS */
+@keyframes ashGlow {
+    0% {
+        box-shadow:
+            0 0 0 rgba(255,140,60,0.0),
+            inset 0 0 0 rgba(255,140,60,0.0);
+        opacity: 0.85;
+    }
+    50% {
+        box-shadow:
+            0 0 22px rgba(255,140,60,0.18),
+            inset 0 0 12px rgba(255,140,60,0.12);
+        opacity: 1;
+    }
+    100% {
+        box-shadow:
+            0 0 0 rgba(255,140,60,0.0),
+            inset 0 0 0 rgba(255,140,60,0.0);
+        opacity: 0.85;
+    }
+}
+
+/* APPLY TO EXISTING BUTTONS */
+.book-links a {
+    animation: ashGlow 7s ease-in-out infinite;
+}
+
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .book-links a {
+        width: 220px;
+        font-size: 0.85rem;
+    }
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- FIRE -->
 <div class="fire-core"></div>
-<div class="fire-heat"></div>
 
-<!-- PARTICLES -->
 <script>
-for (let i = 0; i < 100; i++) {
-    const p = document.createElement("div");
-    p.className = "particle";
-    p.style.left = Math.random() * 100 + "vw";
-    p.style.animationDuration = 6 + Math.random() * 8 + "s";
-    p.style.animationDelay = Math.random() * 6 + "s";
+const count = /mobile/i.test(navigator.userAgent) ? 25 : 100;
+for(let i=0;i<count;i++){
+    const p=document.createElement("div");
+    p.className="particle";
+    p.style.left=Math.random()*100+"vw";
+    p.style.animationDuration=6+Math.random()*8+"s";
+    p.style.animationDelay=Math.random()*6+"s";
     document.body.appendChild(p);
 }
 </script>
@@ -184,203 +189,86 @@ for (let i = 0; i < 100; i++) {
 <!-- HERO -->
 <section class="center">
     <h1>ADIYANTA</h1>
-    <p>That which exists before the beginning<br>and remains after the end.</p>
-    <p>This is not a book.<br>It is a sitting.</p>
+
+    <div class="mantra">
+        यत् सर्वं भवति &nbsp;&nbsp; पर स्वयं न भवति
+    </div>
+    <div class="mantra-meaning">
+        “That because of which everything happens, yet which itself does not happen.”
+    </div>
+
+    <p>
+        That which exists before the beginning<br>
+        and remains after the end.
+    </p>
+
+    <p>
+        This is not a book.<br>
+        It is a sitting.
+    </p>
 </section>
 
-<!-- MAIN CONTENT -->
+<!-- MAIN TEXT -->
 <section>
-    <h2>Before the Fire — the Chit Became Witness</h2>
+<p>
+<strong>Before the Fire — the Chit Became Witness</strong><br><br>
 
-    <p>The fire was lit.<br>Not violent.<br>Not calm.<br>Simply burning.</p>
+The fire was lit.<br>
+Not violent. Not calm.<br>
+Simply burning.<br><br>
 
-    <p>
-        Flames rose upward — slow, steady,<br>
-        as if time itself had forgotten how to move.
-    </p>
+Wood transformed into smoke, into ash, into air.<br>
+But the fire remained only the cause.<br><br>
 
-    <p>
-        Smoke drifted toward the sky,<br>
-        but within me something else was gathering weight.
-    </p>
-
-    <p>
-        This was a cremation.<br>
-        Yet it did not feel like an ending.<br>
-        It felt like the dissolution of form.
-    </p>
-
-    <p>
-        People stood around.<br>
-        Words were spoken.<br>
-        Rituals continued.
-    </p>
-
-    <p>
-        But for me,<br>
-        everything was slowly dissolving into silence.
-    </p>
-
-    <p>
-        <em>Swāhā.</em><br>
-        Each time the word fell into the fire,<br>
-        something else fell with it.
-    </p>
-
-    <p>
-        A name.<br>
-        A shape.<br>
-        An identity.<br>
-        What had been called “I.”
-    </p>
-
-    <p>
-        The fire accepted everything.<br>
-        Without question.<br>
-        Without resistance.
-    </p>
-
-    <p>
-        I was not listening to chants.<br>
-        I was not watching ceremony.<br>
-        I was watching how everything returns.
-    </p>
-
-    <p>
-        Wood was being offered to the fire.<br>
-        Form was changing.<br>
-        Existence was not.
-    </p>
-
-    <p>
-        In that moment,<br>
-        my chit became a witness.<br>
-        Not a thinker.<br>
-        Not a judge.<br>
-        Only a seer.
-    </p>
-
-    <p>
-        And without words,<br>
-        the first movement arose.<br>
-        Not a question.<br>
-        Not curiosity.<br>
-        A remembering.
-    </p>
-
-    <p>
-        As if something ancient within me had awakened.
-    </p>
-
-    <p>
-        The fire was burning.<br>
-        Yet it was not burning itself.<br>
-        It was a medium.
-    </p>
-
-    <p>
-        Wood transformed —<br>
-        into smoke,<br>
-        into ash,<br>
-        into air.
-    </p>
-
-    <p>
-        But the fire…<br>
-        remained only the cause.
-    </p>
-
-    <p>
-        The chit did not give an answer.<br>
-        It gave a direction.
-    </p>
-
-    <p>
-        <strong>“यत् सर्वं भवति, पर स्वयं न भवति।”</strong><br>
-        <em>(That because of which everything happens, yet which itself does not happen.)</em>
-    </p>
-
-    <p>
-        My eyes were on the fire.<br>
-        But my awareness had shifted elsewhere.
-    </p>
-
-    <p>
-        What is false burns and disappears.<br>
-        What is true remains unseen,<br>
-        untouched,<br>
-        even while burning.
-    </p>
-
-    <p>
-        I stayed seated.<br>
-        No conclusion.<br>
-        No doctrine.<br>
-        Only fire. Chit. Silence.
-    </p>
-
-    <p>
-        I did not search for answers.<br>
-        I did not seek belief.<br>
-        I did not seek comfort.
-    </p>
-
-    <p>
-        I asked myself ten questions.<br>
-        Not aloud.<br>
-        Not in sequence.
-    </p>
-
-    <p>
-        They did not demand answers.<br>
-        They demanded honesty.
-    </p>
-
-    <p>
-        This book is not the answers to those questions.<br>
-        It is the path they opened.
-    </p>
-
-    <p>
-        This is where Adiyanta begins.
-    </p>
+This is where Adiyanta begins.<br>
+Not with answers.<br>
+But with ten questions,<br>
+asked before the fire.
+</p>
 </section>
 
 <!-- AUTHOR -->
 <section class="center">
-    <p class="author">
-        <strong>Prateek Chaudhary</strong><br><br>
-        Author & Rights Holder<br>
-        © Prateek Chaudhary — All rights reserved.<br><br>
-        This work is original and self-authored.<br>
-        It does not borrow from any doctrine or institution.
-    </p>
+<p class="author">
+<strong>About the Author</strong><br><br>
+
+Prateek Chaudhary is not a seeker by profession,<br>
+nor a philosopher by training.<br><br>
+
+He does not claim answers.<br>
+He documents inquiry.<br><br>
+
+This work belongs to no doctrine,<br>
+no school of thought,<br>
+and no conclusion.
+</p>
 </section>
 
-<!-- END -->
 <section class="center">
-    <p>The fire has done its work.</p>
-    <p>What was false has burned.</p>
-    <p>What remains does not need light.</p>
+<p>The fire has done its work.</p>
+<p>What was false has burned.</p>
+<p>What remains does not need light.</p>
 </section>
 
-<footer>© Adiyanta</footer>
+<section class="center">
+    <div class="book-links">
+        <a href="https://www.amazon.in/dp/YOUR_AMAZON_LINK" target="_blank">
+            Read on Amazon
+        </a>
 
-<!-- DARKNESS -->
-<script>
-let blackTriggered = false;
+        <a href="https://pothi.com/book/prateek-chaudhary-adiyanta/" target="_blank">
+            Read on Pothi
+        </a>
 
-window.addEventListener("scroll", () => {
-    const total = document.body.scrollHeight - window.innerHeight;
-    const progress = Math.min(window.scrollY / total, 1);
-    document.documentElement.style.setProperty("--dark-level", progress);
+        <a href="https://play.google.com/store/books/details?id=YOUR_GOOGLE_BOOK_ID" target="_blank">
+            Read on Google Books
+        </a>
+    </div>
+</section>
 
-    if (progress > 0.88 && !blackTriggered) {
-        document.body.classList.add("true-black");
-        blackTriggered = true;
-    }
-});
-</script>
+<footer style="text-align:center;padding:80px 20px;font-size:.85rem;color:#555;">
+© Adiyanta
+</footer>
 
 </body>
 </html>
