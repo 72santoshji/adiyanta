@@ -1,256 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-80XEH7CWRL"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-80XEH7CWRL');
-    </script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-80XEH7CWRL"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-80XEH7CWRL');
+</script>
 
 <meta charset="UTF-8">
 <title>Adiyanta</title>
-<!-- ================= SEO META ================= -->
-<meta name="description" content="Adiyanta is not a book. It is a sitting before fire. A journey of ten questions asked in silence, where chit becomes witness and answers dissolve." />
-
-<meta name="keywords" content="Adiyanta, spiritual book, consciousness, silence, fire ritual, chit witness, self inquiry, Indian philosophy, metaphysical book, Prateek Chaudhary" />
-
-<meta name="author" content="Prateek Chaudhary" />
-
-<meta name="robots" content="index, follow" />
-
-<link rel="canonical" href="https://adiyanta.com/" />
-
-<!-- ================= OPEN GRAPH (Facebook / WhatsApp / LinkedIn) ================= -->
-<meta property="og:type" content="website" />
-<meta property="og:title" content="ADIYANTA — Not a Book. A Sitting." />
-<meta property="og:description" content="Ten questions asked before fire. Not for answers — but for honesty. Adiyanta is where silence watches." />
-<meta property="og:url" content="https://adiyanta.com/" />
-<meta property="og:site_name" content="Adiyanta" />
-
-<!-- IMPORTANT: image must be 1200x630 -->
-<meta property="og:image" content="https://adiyanta.com/og-cover.png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Adiyanta — Fire, Silence, Witness" />
-
-<!-- ================= TWITTER / X ================= -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="ADIYANTA — Ten Questions Before the Fire" />
-<meta name="twitter:description" content="This is not a book. It is a sitting. A journey of consciousness, silence, and witnessing." />
-<meta name="twitter:image" content="https://adiyanta.com/og-cover.png" />
-<meta name="twitter:creator" content="@yourhandle" />
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO -->
+<meta name="description" content="Adiyanta is not a book. It is a sitting before fire.">
+<link rel="canonical" href="https://adiyanta.com/">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-
 body{
-    background:#050505;
-    color:#e6e6e6;
-    font-family:Georgia,serif;
-    line-height:1.85;
-    overflow-x:hidden;
+background:#050505;
+color:#e6e6e6;
+font-family:Georgia,serif;
+line-height:1.85;
+overflow-x:hidden;
 }
 
 /* FIRE */
 .fire-core{
-    position:fixed;
-    bottom:-35%;
-    left:50%;
-    width:520px;
-    height:520px;
-    background:radial-gradient(circle,
-        rgba(255,130,60,0.6),
-        rgba(255,70,0,0.35),
-        transparent 70%);
-    filter:blur(100px);
-    transform:translateX(-50%);
-    animation:firePulse 4s ease-in-out infinite;
-    z-index:0;
-    pointer-events:none;
+position:fixed;
+bottom:-35%;
+left:50%;
+width:520px;
+height:520px;
+background:radial-gradient(circle,rgba(255,130,60,.6),rgba(255,70,0,.35),transparent 70%);
+filter:blur(100px);
+transform:translateX(-50%);
+animation:firePulse 4s ease-in-out infinite;
+z-index:0;
+pointer-events:none;
 }
 @keyframes firePulse{
-    0%{opacity:.4;transform:translateX(-50%) scale(1);}
-    50%{opacity:.9;transform:translateX(-50%) scale(1.2);}
-    100%{opacity:.4;transform:translateX(-50%) scale(1);}
+0%{opacity:.4;transform:translateX(-50%) scale(1);}
+50%{opacity:.9;transform:translateX(-50%) scale(1.2);}
+100%{opacity:.4;transform:translateX(-50%) scale(1);}
 }
 
-/* ASH PARTICLES */
+/* ASH */
 .particle{
-    position:fixed;
-    bottom:0;
-    width:3px;
-    height:3px;
-    background:rgba(255,160,90,.9);
-    border-radius:50%;
-    animation:rise linear infinite;
-    z-index:0;
+position:fixed;
+bottom:0;
+width:3px;
+height:3px;
+background:rgba(255,160,90,.9);
+border-radius:50%;
+animation:rise linear infinite;
+z-index:0;
 }
 @keyframes rise{
-    from{transform:translateY(0) scale(1);opacity:1;}
-    to{transform:translateY(-100vh) scale(.2);opacity:0;}
+from{transform:translateY(0) scale(1);opacity:1;}
+to{transform:translateY(-100vh) scale(.2);opacity:0;}
 }
 
 /* CONTENT */
 section{
-    position:relative;
-    z-index:2;
-    max-width:780px;
-    margin:auto;
-    padding:120px 24px;
+position:relative;
+z-index:2;
+max-width:780px;
+margin:auto;
+padding:120px 24px;
 }
-
 .center{text-align:center;}
+h1{font-size:3.4rem;letter-spacing:.12em;margin-bottom:18px;}
 
-h1{
-    font-size:3.4rem;
-    margin-bottom:22px;
-    letter-spacing:.12em;
-}
-
-/* MANTRA */
 .mantra{
-    font-size:1.25rem;
-    color:#e2c08d;
-    margin-top:6px;
-    margin-bottom:6px;
-    letter-spacing:.25em;
+font-size:1.25rem;
+color:#e2c08d;
+letter-spacing:.25em;
 }
 .mantra-meaning{
-    font-size:.95rem;
-    color:#aaa;
-    margin-bottom:28px;
+font-size:.95rem;
+color:#aaa;
+margin-bottom:28px;
 }
 
-/* TEXT */
-p{
-    font-size:1.15rem;
-    margin-bottom:26px;
+p{font-size:1.15rem;margin-bottom:26px;}
+
+.author{color:#bdbdbd;}
+
+.book-links{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:22px;
+margin-top:80px;
+}
+.book-links a{
+width:260px;
+padding:14px 0;
+text-align:center;
+text-decoration:none;
+color:#e6e6e6;
+border:1px solid rgba(255,170,90,.45);
+letter-spacing:.12em;
+animation:ashGlow 7s ease-in-out infinite;
+}
+.book-links a:hover{
+border-color:rgba(255,190,120,.9);
+box-shadow:0 0 18px rgba(255,140,60,.25);
+}
+@keyframes ashGlow{
+0%{opacity:.85;}
+50%{opacity:1;box-shadow:0 0 22px rgba(255,140,60,.18);}
+100%{opacity:.85;}
 }
 
-/* BOOK LINKS */
-.book-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 22px;
-    margin-top: 80px;
+/* LANGUAGE TOGGLE */
+.lang-toggle{
+position:fixed;
+top:20px;
+right:20px;
+z-index:5;
+font-size:.8rem;
+cursor:pointer;
+letter-spacing:.1em;
 }
-
-.book-links a {
-    width: 260px;              /* 🔑 SAME WIDTH */
-    text-align: center;
-    padding: 14px 0;
-    text-decoration: none;
-    color: #e6e6e6;
-    font-family: Georgia, serif;
-    letter-spacing: 0.12em;
-    font-size: 0.9rem;
-    border: 1px solid rgba(255,170,90,0.45);
-    transition: all 0.4s ease;
-    position: relative;
+.lang-toggle span{
+margin:0 6px;
+opacity:.6;
 }
-
-.book-links a:hover {
-    border-color: rgba(255,190,120,0.9);
-    color: #fff;
-    box-shadow: 0 0 18px rgba(255,140,60,0.25);
-    transform: translateY(-2px);
+.lang-toggle .active{
+opacity:1;
+color:#e2c08d;
 }
-
-/* ASH-GLOW PULSE FOR BUTTONS */
-@keyframes ashGlow {
-    0% {
-        box-shadow:
-            0 0 0 rgba(255,140,60,0.0),
-            inset 0 0 0 rgba(255,140,60,0.0);
-        opacity: 0.85;
-    }
-    50% {
-        box-shadow:
-            0 0 22px rgba(255,140,60,0.18),
-            inset 0 0 12px rgba(255,140,60,0.12);
-        opacity: 1;
-    }
-    100% {
-        box-shadow:
-            0 0 0 rgba(255,140,60,0.0),
-            inset 0 0 0 rgba(255,140,60,0.0);
-        opacity: 0.85;
-    }
-}
-
-/* APPLY TO EXISTING BUTTONS */
-.book-links a {
-    animation: ashGlow 7s ease-in-out infinite;
-}
-
-
-/* MOBILE */
-@media (max-width: 768px) {
-    .book-links a {
-        width: 220px;
-        font-size: 0.85rem;
-    }
-}
-
 </style>
 </head>
 
 <body>
 
+<div class="lang-toggle">
+<span id="enBtn" class="active">EN</span> | <span id="hiBtn">हिंदी</span>
+</div>
+
 <div class="fire-core"></div>
 
 <script>
-const count = /mobile/i.test(navigator.userAgent) ? 25 : 100;
-for(let i=0;i<count;i++){
-    const p=document.createElement("div");
-    p.className="particle";
-    p.style.left=Math.random()*100+"vw";
-    p.style.animationDuration=6+Math.random()*8+"s";
-    p.style.animationDelay=Math.random()*6+"s";
-    document.body.appendChild(p);
+for(let i=0;i<80;i++){
+const p=document.createElement("div");
+p.className="particle";
+p.style.left=Math.random()*100+"vw";
+p.style.animationDuration=6+Math.random()*8+"s";
+document.body.appendChild(p);
 }
 </script>
 
 <!-- HERO -->
 <section class="center">
-    <h1>ADIYANTA</h1>
+<h1 id="title">ADIYANTA</h1>
 
-    <div class="mantra">
-        यत् सर्वं भवति &nbsp;&nbsp; पर स्वयं न भवति
-    </div>
-    <div class="mantra-meaning">
-        “That because of which everything happens, yet which itself does not happen.”
-    </div>
+<div class="mantra">
+यत् सर्वं भवति &nbsp; पर स्वयं न भवति
+</div>
 
-    <p>
-        That which exists before the beginning<br>
-        and remains after the end.
-    </p>
+<div class="mantra-meaning" id="mantraMeaning">
+“That because of which everything happens, yet which itself does not happen.”
+</div>
 
-    <p>
-        This is not a book.<br>
-        It is a sitting.
-    </p>
+<p id="heroLine1">
+That which exists before the beginning<br>
+and remains after the end.
+</p>
+
+<p id="heroLine2">
+This is not a book.<br>
+It is a sitting.
+</p>
 </section>
 
-<!-- MAIN TEXT -->
+<!-- MAIN -->
 <section>
-<p>
+<p id="mainText">
 <strong>Before the Fire — the Chit Became Witness</strong><br><br>
-
 The fire was lit.<br>
 Not violent. Not calm.<br>
 Simply burning.<br><br>
-
 Wood transformed into smoke, into ash, into air.<br>
 But the fire remained only the cause.<br><br>
-
 This is where Adiyanta begins.<br>
 Not with answers.<br>
 But with ten questions,<br>
@@ -260,46 +197,60 @@ asked before the fire.
 
 <!-- AUTHOR -->
 <section class="center">
-<p class="author">
+<p class="author" id="authorText">
 <strong>About the Author</strong><br><br>
-
 Prateek Chaudhary is not a seeker by profession,<br>
 nor a philosopher by training.<br><br>
-
 He does not claim answers.<br>
-He documents inquiry.<br><br>
-
-This work belongs to no doctrine,<br>
-no school of thought,<br>
-and no conclusion.
+He documents inquiry.
 </p>
 </section>
 
 <section class="center">
-<p>The fire has done its work.</p>
-<p>What was false has burned.</p>
-<p>What remains does not need light.</p>
+<p id="ending1">The fire has done its work.</p>
+<p id="ending2">What was false has burned.</p>
+<p id="ending3">What remains does not need light.</p>
 </section>
 
 <section class="center">
-    <div class="book-links">
-        <a href="https://www.amazon.in/dp/YOUR_AMAZON_LINK" target="_blank" rel="noopener noreferrer">
-            Read on Amazon
-        </a>
-
-        <a href="https://store.pothi.com/book/prateek-chaudhary-adiyanta/" target="_blank" rel="noopener noreferrer">
-            Read on Pothi
-        </a>
-
-        <a href="https://play.google.com/store/books/details?id=YOUR_GOOGLE_BOOK_ID" target="_blank" rel="noopener noreferrer">
-            Read on Google Books
-        </a>
-    </div>
+<div class="book-links">
+<a href="https://store.pothi.com/book/prateek-chaudhary-adiyanta/" target="_blank">READ ON POTHI</a>
+<a href="#">READ ON AMAZON</a>
+<a href="#">READ ON GOOGLE BOOKS</a>
+</div>
 </section>
 
 <footer style="text-align:center;padding:80px 20px;font-size:.85rem;color:#555;">
 © Adiyanta
 </footer>
+
+<script>
+const hi = {
+mantraMeaning:"“जिसके कारण सब घटता है, पर जो स्वयं घटित नहीं होता।”",
+heroLine1:"जो आरंभ से पहले था<br>और अंत के बाद भी रहेगा।",
+heroLine2:"यह कोई पुस्तक नहीं है।<br>यह एक मौन में बैठना है।",
+mainText:"<strong>अग्नि के सामने — चित साक्षी बना</strong><br><br>अग्नि प्रज्वलित हुई।<br>न उग्र। न शांत।<br>केवल जलती हुई।<br><br>लकड़ी धुएँ में बदली, राख में बदली, वायु में विलीन हुई।<br>पर अग्नि केवल कारण बनी रही।<br><br>यहीं से आदियन्त आरंभ होता है।<br>उत्तर से नहीं।<br>दस प्रश्नों से।<br>जो अग्नि के सामने उठे।",
+authorText:"<strong>लेखक के बारे में</strong><br><br>प्रतीक चौधरी न पेशे से साधक हैं,<br>न प्रशिक्षण से दार्शनिक।<br><br>वे उत्तर नहीं देते।<br>वे प्रश्नों का साक्ष्य रखते हैं।",
+ending1:"अग्नि ने अपना कार्य कर दिया है।",
+ending2:"जो असत्य था, वह जल गया।",
+ending3:"जो शेष है, उसे प्रकाश की आवश्यकता नहीं।"
+};
+
+function switchLang(lang){
+document.getElementById("enBtn").classList.toggle("active",lang==="en");
+document.getElementById("hiBtn").classList.toggle("active",lang==="hi");
+if(lang==="hi"){
+for(let k in hi){
+document.getElementById(k).innerHTML=hi[k];
+}
+}else{
+location.reload();
+}
+}
+
+document.getElementById("hiBtn").onclick=()=>switchLang("hi");
+document.getElementById("enBtn").onclick=()=>switchLang("en");
+</script>
 
 </body>
 </html>
